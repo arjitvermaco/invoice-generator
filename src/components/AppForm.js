@@ -2,7 +2,7 @@ import React from "react";
 
 export default function AppForm() {
   return (
-    <div className="w-[62%] bg-white">
+    <div className="w-[62%] bg-white px-6 py-8">
       <form>
         {/* Div for logo and invoice and invoice number  */}
 
@@ -65,6 +65,43 @@ export default function AppForm() {
             </div>
         </div>
         </div>
+
+    {/* Div for invoice from and date and bill section  */}
+        <div className="flex flex-col mt-10">
+            <div className="w-6/12">
+                <div className="mt-2">
+                    <textarea
+                    id="from"
+                    rows="2"
+                    className="mt-1 block w-full pl-3 rounded-mg border-0 text-gray-900 shadow-sm ring-1 ring-gray-300"
+                    placeholder="Who is this invoice from?"
+                    ></textarea>
+                </div>
+            </div>
+
+            <div className="mt-3 w-6/12 flex justify-between gap-3">
+                <div className="w-6/12">
+                    <label>Bill To</label>
+                    <textarea id="bill-to" rows="2" className="mt-1 block w-full rounded-md pl-3  border-0 text-gray-900 shadow-sm ring-1 ring-inset ">
+
+                    </textarea>
+                </div>
+
+
+                <div className="w-6/12">
+                    <label>Ship To</label>
+                    <textarea id="bill-to" rows="2" className="mt-1 block w-full rounded-md pl-3  border-0 text-gray-900 shadow-sm ring-1 ring-inset ">
+
+                    </textarea>
+                </div>
+            </div>
+
+
+            
+        </div>
+
+
+
 
 
       </form>
