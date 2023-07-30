@@ -1,14 +1,29 @@
 import React from "react";
 
 export default function AppForm() {
+    const [logoSrc, setLogoSrc] = React.useState("");
+    const imageChange = (e)=>{
+      
+        let tgt = e.target;
+        // event.target.files 
+        let files = tgt.files;
+        console.log(files)
+
+        if (FileReader && files && files.length) {
+            var fr = new FileReader();
+            fr.onload = function () {
+              setLogoSrc(fr.result)
+            }
+            fr.readAsDataURL(files[0]);
+        }
+    }
   return (
     <div className="w-[62%] bg-white px-6 py-8">
       <form>
         {/* Div for logo and invoice and invoice number  */}
-
         <div className="flex justify-between items-center">
           <div className="w-3/12">
-            <label
+           {!logoSrc && <label
               htmlFor="file-upload"
               className="relative cursor-pointer rounded-md text-blue-600 "
             >
@@ -35,12 +50,18 @@ export default function AppForm() {
                       name="file-upload"
                       type="file"
                       className="sr-only"
+                      onChange={imageChange}
                     />
                   </div>
                   <p className="text-xs text-gray-500">Add Your Logo</p>
                 </div>
               </div>
-            </label>
+            </label>}
+        {logoSrc && <div>
+            <button className="h-8 w-8 bg-red-600 text-white absolute" onClick={()=>{setLogoSrc("")}}> &times;</button>
+            <img src={logoSrc} alt=""/>
+            </div>}
+
           </div>
 
           <div className="w-9/12 flex items-end flex-col">
